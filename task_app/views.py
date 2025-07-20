@@ -3,7 +3,7 @@
 from rest_framework.views import APIView
 from rest_framework import generics, status
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import api_view, permission_classes
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
@@ -19,6 +19,7 @@ logger = logging.getLogger(__name__)
 
 class RegisterView(APIView):
     """View for user registration."""
+    permission_classes = [AllowAny]
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
         if serializer.is_valid():
@@ -42,6 +43,7 @@ class RegisterView(APIView):
     
 class EmailLoginView(APIView):
     """View for user login using email."""
+    permission_classes = [AllowAny]
     def post(self, request):
         serializer = EmailLoginSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
