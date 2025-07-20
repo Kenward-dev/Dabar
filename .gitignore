@@ -1,0 +1,17 @@
+*.sqlite3
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.db
+*.DS_Store
+*.egg-info
+*.coverage
+*.migrations
+*.vscode
+*.idea
+*.pytest_cache
+*.tox
+*.env
+*.venv
